@@ -15,15 +15,15 @@ public class DoctorEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false)
+	@Column(nullable = false, length = 45)
 	private String firstName;
 
-	@Column(nullable = false)
+	@Column(nullable = false, length = 45)
 	private String lastName;
 
-	@Column(nullable = false)
+	@Column(nullable = false, length = 15)
 	private String telephoneNumber;
-
+	@Column(nullable = true)
 	private String email;
 
 	@Column(nullable = false)
@@ -42,7 +42,7 @@ public class DoctorEntity {
 	private Collection<VisitEntity> visit;
 
 	//Relacja OneToOne dwukierunkowa od strony rodzica
-	@OneToOne(mappedBy = "doctor")
+	@OneToOne(mappedBy = "doctor", cascade = CascadeType.REMOVE)
 	private AddressEntity address;
 
 	public Long getId() {
