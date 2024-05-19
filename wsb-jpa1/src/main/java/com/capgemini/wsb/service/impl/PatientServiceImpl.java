@@ -49,7 +49,7 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public PatientTO updatePatient(PatientTO patientTO) {
+    public PatientTO updatePatient(PatientTO patientTO) throws Exception {
         PatientEntity existingPatientEntity = patientDao.findOne(patientTO.getId());
         if (existingPatientEntity != null) {
             PatientEntity updatedPatientEntity = PatientMapper.mapToPatientEntity(patientTO);
