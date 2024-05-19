@@ -8,7 +8,7 @@ import com.capgemini.wsb.persistence.entity.PatientEntity;
 import com.capgemini.wsb.persistence.entity.VisitEntity;
 
 public final class DoctorMapper {
-    public static DoctorTO mapToTO(final DoctorEntity doctorEntity)
+    public static DoctorTO mapToDoctorTO(final DoctorEntity doctorEntity)
     {
         if (doctorEntity == null)
         {
@@ -26,7 +26,7 @@ public final class DoctorMapper {
         return doctorTO;
     }
 
-    public static DoctorEntity mapToEntity(final DoctorTO doctorTO)
+    public static DoctorEntity mapToDoctorEntity(final DoctorTO doctorTO)
     {
         if(doctorTO == null)
         {

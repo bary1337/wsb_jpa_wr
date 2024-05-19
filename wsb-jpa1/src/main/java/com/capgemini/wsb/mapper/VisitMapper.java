@@ -7,7 +7,7 @@ import com.capgemini.wsb.persistence.entity.VisitEntity;
 public final class VisitMapper
 {
 
-    public static VisitTO mapToTO(final VisitEntity visitEntity)
+    public static VisitTO mapToVisitTO(final VisitEntity visitEntity)
     {
         if (visitEntity == null)
         {
@@ -20,7 +20,7 @@ public final class VisitMapper
         return visitTO;
     }
 
-    public static VisitEntity mapToEntity(final VisitTO visitTO)
+    public static VisitEntity mapToVisitEntity(final VisitTO visitTO)
     {
         if(visitTO == null)
         {
