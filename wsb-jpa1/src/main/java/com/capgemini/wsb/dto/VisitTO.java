@@ -9,7 +9,7 @@ public class VisitTO {
     private Long patientId;
     private Long doctorId;
 
-    public VisitTO(Long id, String description, LocalDateTime time, Long patientId, Long doctorId)
+    public VisitTO()
     {
         this.id = id;
         this.description = description;
