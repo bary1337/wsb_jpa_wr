@@ -3,7 +3,6 @@ package com.capgemini.wsb.mapper;
 import com.capgemini.wsb.dto.VisitTO;
 import com.capgemini.wsb.persistence.entity.VisitEntity;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 public final class VisitMapper
 {

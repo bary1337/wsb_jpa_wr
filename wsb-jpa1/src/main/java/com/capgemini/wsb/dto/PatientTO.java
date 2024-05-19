@@ -15,7 +15,7 @@ public class PatientTO {
         this.telephoneNumber = telephoneNumber;
         this.email = email;
         this.patientNumber = patientNumber;
-        this.dataOfBirth = dataOfBirth;
+        this.dateOfBirth = dataOfBirth;
         this.address = address;
         this.visits = visits;
     }
@@ -25,7 +25,7 @@ public class PatientTO {
     private String telephoneNumber;
     private String email;
     private String patientNumber;
-    private LocalDate dataOfBirth;
+    private LocalDate dateOfBirth;
     private AddressTO address;
     private List<VisitTO> visits;
 
@@ -77,12 +77,12 @@ public class PatientTO {
         this.patientNumber = patientNumber;
     }
 
-    public LocalDate getDataOfBirth() {
-        return dataOfBirth;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDataOfBirth(LocalDate dataOfBirth) {
-        this.dataOfBirth = dataOfBirth;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public AddressTO getAddress() {
