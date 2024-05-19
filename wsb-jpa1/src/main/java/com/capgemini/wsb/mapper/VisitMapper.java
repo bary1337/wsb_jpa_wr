@@ -3,6 +3,8 @@ package com.capgemini.wsb.mapper;
 import com.capgemini.wsb.dto.VisitTO;
 import com.capgemini.wsb.persistence.entity.VisitEntity;
 
+import javax.print.Doc;
+
 
 public final class VisitMapper
 {
@@ -17,6 +19,8 @@ public final class VisitMapper
         visitTO.setId(visitEntity.getId());
         visitTO.setDescription(visitEntity.getDescription());
         visitTO.setTime(visitEntity.getTime());
+        visitTO.setDoctor(DoctorMapper.mapToDoctorTO(visitEntity.getDoctor()));
+        visitTO.setPatient(PatientMapper.mapToPatientTO(visitEntity.getPatient()));
         return visitTO;
     }
 
@@ -30,6 +34,8 @@ public final class VisitMapper
         visitEntity.setId(visitTO.getId());
         visitEntity.setDescription(visitTO.getDescription());
         visitEntity.setTime(visitTO.getTime());
+        visitEntity.setDoctor(DoctorMapper.mapToDoctorEntity(visitTO.getDoctor()));
+        visitEntity.setPatient(PatientMapper.mapToPatientEntity(visitTO.getPatient()));
         return visitEntity;
     }
 }

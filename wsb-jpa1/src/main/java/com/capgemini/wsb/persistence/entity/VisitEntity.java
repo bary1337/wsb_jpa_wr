@@ -35,6 +35,9 @@ public class VisitEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "PATIENT_ID")
 	private PatientEntity patientEntity;
+	private Collection<MedicalTreatmentEntity> medicalTreatments;
+	private DoctorEntity doctor;
+	private PatientEntity patient;
 
 	public Long getId() {
 		return id;
@@ -58,6 +61,30 @@ public class VisitEntity {
 
 	public void setTime(LocalDateTime time) {
 		this.time = time;
+	}
+
+	public PatientEntity getPatient() {
+		return patient;
+	}
+
+	public void setPatient(PatientEntity patient) {
+		this.patient = patient;
+	}
+
+	public DoctorEntity getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(DoctorEntity doctor) {
+		this.doctor = doctor;
+	}
+
+	public Collection<MedicalTreatmentEntity> getMedicalTreatments() {
+		return medicalTreatments;
+	}
+
+	public void setMedicalTreatments(Collection<MedicalTreatmentEntity> medicalTreatments) {
+		this.medicalTreatments = medicalTreatments;
 	}
 
 }
