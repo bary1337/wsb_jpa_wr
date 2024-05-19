@@ -45,7 +45,7 @@ public class DoctorEntity {
 
 	//Relacja OneToOne dwukierunkowa od strony rodzica
 	@OneToOne(mappedBy = "doctor", cascade = CascadeType.REMOVE)
-	private AddressTO address;
+	private AddressEntity address;
 	private List<VisitEntity> visitsEntities;
 
 	public Long getId() {
@@ -111,11 +111,11 @@ public class DoctorEntity {
 		this.visitsEntities = visitsEntities;
 	}
 
-	public AddressTO getAddress() {
+	public AddressEntity getAddress() {
 		return address;
 	}
 
-	public void setAddress(AddressTO address) {
+	public void setAddress(AddressEntity address) {
 		this.address = address;
 	}
 }

@@ -22,7 +22,6 @@ public final class DoctorMapper {
         doctorTO.setEmail(doctorEntity.getEmail());
         doctorTO.setDoctorNumber(doctorEntity.getDoctorNumber());
         doctorTO.setSpecialization(doctorEntity.getSpecialization());
-        doctorTO.setAddress(doctorEntity.getAddress());
         return doctorTO;
     }
 
@@ -40,7 +39,6 @@ public final class DoctorMapper {
         doctorEntity.setEmail(doctorTO.getEmail());
         doctorEntity.setDoctorNumber(doctorTO.getDoctorNumber());
         doctorEntity.setSpecialization(doctorTO.getSpecialization());
-        doctorEntity.setAddress(doctorTO.getAddress());
         return doctorEntity;
     }
 }
