@@ -22,7 +22,7 @@ public class PatientDaoTest {
     @Transactional
     @Test
     @Description("Lab3.1 DAO")
-            void testShouldReturnPatientWhenPassedLastName() {
+            public void testShouldReturnPatientWhenPassedLastName() {
             // Given
             final String lastNameSearchingPatient = "Wójcik";
             final Long expectedPatientId = 2L;
