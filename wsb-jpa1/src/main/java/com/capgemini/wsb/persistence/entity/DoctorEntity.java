@@ -6,6 +6,7 @@ import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "DOCTOR")
@@ -44,6 +45,7 @@ public class DoctorEntity {
 	//Relacja OneToOne dwukierunkowa od strony rodzica
 	@OneToOne(mappedBy = "doctor", cascade = CascadeType.REMOVE)
 	private AddressEntity address;
+	private List<VisitEntity> visitsEntities;
 
 	public Long getId() {
 		return id;
@@ -101,4 +103,18 @@ public class DoctorEntity {
 		this.specialization = specialization;
 	}
 
+	public List<VisitEntity> getVisitsEntities() {
+		return visitsEntities;
+	}
+	public void setVisitsEntities(List<VisitEntity> visitsEntities) {
+		this.visitsEntities = visitsEntities;
+	}
+
+	public AddressEntity getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressEntity address) {
+		this.address = address;
+	}
 }
