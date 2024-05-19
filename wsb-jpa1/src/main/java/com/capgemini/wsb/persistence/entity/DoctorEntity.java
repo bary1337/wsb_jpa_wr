@@ -1,5 +1,6 @@
 package com.capgemini.wsb.persistence.entity;
 
+import com.capgemini.wsb.dto.AddressTO;
 import com.capgemini.wsb.persistence.enums.Specialization;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -44,7 +45,7 @@ public class DoctorEntity {
 
 	//Relacja OneToOne dwukierunkowa od strony rodzica
 	@OneToOne(mappedBy = "doctor", cascade = CascadeType.REMOVE)
-	private AddressEntity address;
+	private AddressTO address;
 	private List<VisitEntity> visitsEntities;
 
 	public Long getId() {
@@ -110,11 +111,11 @@ public class DoctorEntity {
 		this.visitsEntities = visitsEntities;
 	}
 
-	public AddressEntity getAddress() {
+	public AddressTO getAddress() {
 		return address;
 	}
 
-	public void setAddress(AddressEntity address) {
+	public void setAddress(AddressTO address) {
 		this.address = address;
 	}
 }
