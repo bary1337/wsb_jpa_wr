@@ -35,18 +35,12 @@ public class DoctorEntity {
 	@Enumerated(EnumType.STRING)
 	private Specialization specialization;
 
-	//Relacja OneToMany jednokierunkowa od strony rodzica
-	@OneToMany(
-			cascade = CascadeType.ALL,
-			fetch = FetchType.EAGER
-	)
-	@JoinColumn(name = "VISIT_ID")
-	private Collection<VisitEntity> visit;
-
-	//Relacja OneToOne dwukierunkowa od strony rodzica
+	//Relacja dwustronna OneToMany
+	@OneToMany(mappedBy = "doctor", cascade = CascadeType.REMOVE)
+	private List<VisitEntity> visitsEntities;
+	//Relacja dwustronna OneToMany
 	@OneToOne(mappedBy = "doctor", cascade = CascadeType.REMOVE)
 	private AddressEntity address;
-	private List<VisitEntity> visitsEntities;
 
 	public Long getId() {
 		return id;

@@ -1,5 +1,8 @@
 package com.capgemini.wsb.persistence.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import java.time.LocalDateTime;
 import java.util.Collection;
 
@@ -18,26 +21,16 @@ public class VisitEntity {
 	@Column(nullable = false)
 	private LocalDateTime time;
 
-	//Relacja ManyToOne jednokierunkowa od strony dziecka
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "DOCTOR_ID")
-	private DoctorEntity doctorEntity;
-
-	//Relacja OneToMany jednokierunkowa od strony rodzica
-	@OneToMany(
-			cascade = CascadeType.ALL,
-			fetch = FetchType.EAGER
-	)
-	@JoinColumn(name = "MEDICAL_TREATMENT_ID")
-	private Collection<MedicalTreatmentEntity> medicalTreatment;
-
-	//Relacja ManyToOne jednokierunkowa od strony dziecka
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PATIENT_ID")
-	private PatientEntity patientEntity;
-	private Collection<MedicalTreatmentEntity> medicalTreatments;
+	// Relacja ManyToOne dwukierunkowa
+	@ManyToOne
 	private DoctorEntity doctor;
+	// Relacja ManyToOne dwukierunkowa
+	@ManyToOne
 	private PatientEntity patient;
+	@Fetch(FetchMode.JOIN)
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "VISIT_ID")
+	private Collection<MedicalTreatmentEntity> medicalTreatments;
 
 	public Long getId() {
 		return id;
