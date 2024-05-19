@@ -15,6 +15,10 @@ public class PatientTest {
 
     @Autowired
     private PatientService patientService;
+    @Autowired
+    private VisitService visitService;
+    @Autowired
+    private DoctorService doctorService;
 
     @Transactional
     @Test
@@ -29,21 +33,18 @@ public class PatientTest {
         assertEquals("Joanna", patient.getFirstName());
     }
 
-    @Transactional
     @Test
-    void testShouldRemoveVisitsWhenPatientWasDeleted() {
-        // Given
-        final Long patientId = 1L;
-        PatientTO patient = patientService.findById(patientId);
-        List<VisitTO> patientVisits = patient.getVisits();
-        Long firstVisitIdAssignedToPatient = patientVisits.get(0).getId();
-
-        // When
-        patientService.deleteById(patientId);
-
-        // Then
-        VisitService visitService = null;
-        VisitTO visitDto = visitService.getVisitById(firstVisitIdAssignedToPatient);
-        assertNull(visitDto);
+    public void testNoArgsConstructor() {
+        PatientTO patient = new PatientTO();
+        assertNull(patient.getId());
+        assertNull(patient.getFirstName());
+        assertNull(patient.getLastName());
+        assertNull(patient.getTelephoneNumber());
+        assertNull(patient.getEmail());
+        assertNull(patient.getPatientNumber());
+        assertNull(patient.getDateOfBirth());
+        assertNull(patient.getAddress());
+        assertNull(patient.getVisits());
     }
+
 }

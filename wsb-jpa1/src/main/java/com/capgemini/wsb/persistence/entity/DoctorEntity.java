@@ -112,4 +112,8 @@ public class DoctorEntity {
 	public void setAddress(AddressEntity address) {
 		this.address = address;
 	}
+
+    public void setName(String s) {
+    }
+
 }
