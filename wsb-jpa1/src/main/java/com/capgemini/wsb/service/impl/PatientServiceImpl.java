@@ -7,8 +7,7 @@ import com.capgemini.wsb.persistence.entity.PatientEntity;
 import com.capgemini.wsb.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
@@ -27,35 +26,18 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public boolean deleteById(Long id) {
-        PatientEntity patient = patientDao.findOne(id);
-        if (patient != null) {
-            patientDao.delete(patient);
-            return true;
-        } else {
-            return false;
+    public void deletePatient(Long id) {
+        PatientEntity patientEntity = patientDao.findOne(id);
+        if (patientEntity != null) {
+            patientDao.delete(patientEntity);
         }
     }
 
-
     @Override
-    public PatientTO addPatient(PatientTO patientTO) throws Exception {
-        if (patientTO == null) {
-            throw new Exception("Patient cannot be null");
-        }
+    public PatientTO savePatient(PatientTO patientTO) {
         PatientEntity patientEntity = PatientMapper.mapToPatientEntity(patientTO);
-        patientDao.save(patientEntity);
-        return patientTO;
-    }
-
-    @Override
-    public PatientTO updatePatient(PatientTO patientTO) throws Exception {
-        PatientEntity existingPatientEntity = patientDao.findOne(patientTO.getId());
-        if (existingPatientEntity != null) {
-            PatientEntity updatedPatientEntity = PatientMapper.mapToPatientEntity(patientTO);
-            patientDao.update(updatedPatientEntity);
+        PatientEntity savedPatientEntity = patientDao.save(patientEntity);
+        return PatientMapper.mapToPatientTO(savedPatientEntity);
         }
-        return patientTO;
-    }
 
 }

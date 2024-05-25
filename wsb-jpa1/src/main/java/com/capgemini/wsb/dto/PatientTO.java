@@ -6,6 +6,8 @@ import com.capgemini.wsb.persistence.entity.VisitEntity;
 import java.util.ArrayList;
 import java.util.List;
 public class PatientTO {
+    private List<AddressTO> addresses;
+
     public PatientTO(){}
     public PatientTO(Long id, String firstName, String lastName, String telephoneNumber, String email, String patientNumber, LocalDate dataOfBirth, AddressTO address, List<VisitTO> visits)
     {
@@ -85,19 +87,19 @@ public class PatientTO {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public AddressTO getAddress() {
-        return address;
-    }
-
-    public void setAddress(AddressTO address) {
-        this.address = address;
-    }
-
     public List<VisitTO> getVisits() {
         return visits;
     }
 
     public void setVisits(List<VisitTO> visits) {
         this.visits = visits;
+    }
+
+    public List<AddressTO> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<AddressTO> addresses) {
+        this.addresses = addresses;
     }
 }

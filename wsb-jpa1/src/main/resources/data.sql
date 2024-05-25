@@ -9,14 +9,14 @@ INSERT INTO doctor (id, first_name, last_name, telephone_number, email, doctor_n
 VALUES (4, 'Agnieszka', 'Pawlak', '+48 444 555 666', 'agnieszka.pawlak@example.com', '456789', 'OCULIST');
 
 -- Patient Insert
-INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth)
-VALUES (1, 'Joanna', 'Dąbrowska', '+48 555 666 777', 'joanna.dabrowska@example.com', '1230984567', '2001-02-02');
-INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth)
-VALUES (2, 'Adam', 'Wójcik', '+48 666 777 888', 'adam.wojcik@example.com', '2345678901', '1986-06-16');
-INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth)
-VALUES (3, 'Karolina', 'Majewska', '+48 777 888 999', 'karolina.majewska@example.com', '3456789012', '1971-11-30');
-INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth)
-VALUES (4, 'Paweł', 'Ostrowski', '+48 888 999 000', 'pawel.ostrowski@example.com', '4567890123', '1996-08-11');
+INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, is_disabled)
+VALUES (1, 'Joanna', 'Dąbrowska', '+48 555 666 777', 'joanna.dabrowska@example.com', '1230984567', '2001-02-02', true);
+INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, is_disabled)
+VALUES (2, 'Adam', 'Wójcik', '+48 666 777 888', 'adam.wojcik@example.com', '2345678901', '1986-06-16', false);
+INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, is_disabled)
+VALUES (3, 'Karolina', 'Majewska', '+48 777 888 999', 'karolina.majewska@example.com', '3456789012', '1971-11-30', true);
+INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, is_disabled)
+VALUES (4, 'Paweł', 'Ostrowski', '+48 888 999 000', 'pawel.ostrowski@example.com', '4567890123', '1996-08-11', false);
 
 -- Address Insert
 INSERT INTO address (id, address_line1, address_line2, city, postal_code, doctor_id)

@@ -22,8 +22,9 @@ public class AddressEntity {
 	@OneToOne
 	private DoctorEntity doctor;
 
-	//Relacja OneToOne dwukierunkowa od strony dziecka
-	@OneToOne
+	//Relacja ManyToOne jednokierunkowa od strony dziecka
+	@ManyToOne
+	@JoinColumn(name = "patient_id")
 	private PatientEntity patient;
 
 	public Long getId() {

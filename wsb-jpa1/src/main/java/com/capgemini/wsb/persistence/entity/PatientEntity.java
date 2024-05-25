@@ -3,6 +3,7 @@ package com.capgemini.wsb.persistence.entity;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -30,13 +31,16 @@ public class PatientEntity {
 
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
+	@Column(nullable = true)
+	private Boolean isDisabled;
+
 
 	//Relacja OneToMany od strony rodzica dwukierunkowa
-	@OneToMany(mappedBy = "patient", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private List<VisitEntity> visits;
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<VisitEntity> visits;
 	// Relacja OneToOne jednokierunkowa od strony rodzica
-	@OneToOne(mappedBy = "patient",fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private AddressEntity address;
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<AddressEntity> addresses;
 
 	public Long getId() {
 		return id;
@@ -94,4 +98,28 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public Set<VisitEntity> getVisits() {
+		return visits;
+	}
+
+	public void setVisits(Set<VisitEntity> visits) {
+		this.visits = visits;
+	}
+
+	public Set<AddressEntity> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(Set<AddressEntity> addresses) {
+		this.addresses = addresses;
+	}
+
+
+	public Boolean getIsDisabled() {
+		return isDisabled;
+	}
+
+	public void setIsDisabled(Boolean isDisabled) {
+		this.isDisabled = isDisabled;
+	}
 }
