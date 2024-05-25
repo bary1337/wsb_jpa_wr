@@ -5,10 +5,15 @@ import com.capgemini.wsb.persistence.entity.PatientEntity;
 import com.capgemini.wsb.persistence.entity.VisitEntity;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
 public abstract class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements PatientDao {
+
+    @PersistenceContext
+    private EntityManager entityManager;
     @Override
     public PatientEntity findByLastName(String lastName) {
         String query = "SELECT u FROM PatientEntity u WHERE u.lastName = :lastName";
